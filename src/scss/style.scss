@@ -1,0 +1,38 @@
+@use 'modules';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: modules.$background-color;
+}
+.banner {
+  object-fit: cover;
+  height: 48rem;
+  width: 100%;
+}
+.container {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.titles {
+  margin-top: 2rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-family: modules.$font-stack;
+  color: modules.$primary-color;
+
+  .big-title {
+    font-weight: modules.$boldest;
+    font-size: 3.7rem;
+  }
+  .small-title {
+    font-weight: modules.$boldest;
+    font-size: 1.4rem;
+  }
+}

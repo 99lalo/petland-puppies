@@ -1,0 +1,103 @@
+@use 'config';
+
+#navbar {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  background-color: config.$light-color;
+  position: fixed;
+  width: 100%;
+  img {
+    width: 8%;
+    position: absolute;
+    left: 12%;
+    top: 30%;
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    margin: 1rem 0 0 3rem;
+    span {
+      font-size: 0.8rem;
+      margin-top: 0.8rem;
+      font-family: config.$font-stack;
+      text-transform: uppercase;
+      font-weight: bold;
+      justify-content: space-between;
+      position: relative;
+      display: inline-block;
+      letter-spacing: 3px;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        bottom: -10px;
+        left: 0;
+        background-color: config.$secondary-color;
+        transform: scaleX(0);
+        transform-origin: bottom left;
+        transition: transform 0.25s ease-out;
+      }
+      &:hover {
+        cursor: pointer;
+        &::before {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
+      }
+    }
+  }
+}
+#navtop {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+  color: config.$light-color;
+  img {
+    width: 8%;
+    position: absolute;
+    left: 12%;
+    top: 30%;
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    margin: 1rem 0 0 3rem;
+    span {
+      font-size: 0.8rem;
+      margin-top: 0.8rem;
+      font-family: config.$font-stack;
+      text-transform: uppercase;
+      font-weight: bold;
+      justify-content: space-between;
+      position: relative;
+      display: inline-block;
+      letter-spacing: 3px;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        bottom: -10px;
+        left: 0;
+        background-color: config.$secondary-color;
+        transform: scaleX(0);
+        transform-origin: bottom left;
+        transition: transform 0.25s ease-out;
+      }
+      &:hover {
+        cursor: pointer;
+        &::before {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
+      }
+    }
+  }
+}
