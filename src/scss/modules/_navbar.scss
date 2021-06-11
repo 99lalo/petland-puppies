@@ -7,6 +7,8 @@
   background-color: config.$light-color;
   position: fixed;
   width: 100%;
+  z-index: 1;
+  transition: top 0.3s;
   img {
     width: 8%;
     position: absolute;

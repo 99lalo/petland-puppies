@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useScrollPosition from "@react-hook/window-scroll";
 
 export default function Navbar() {
   const scrollY = useScrollPosition(100);
+  const [prevScroll, setPrevScroll] = useState();
+  const [direction, setDirection] = useState(false);
+  useEffect(() => {
+      setPrevScroll(scrollY);
+      if(scrollY > prevScroll && direction == false){
+        setDirection(true)
+      }
+      if(prevScroll > scrollY && direction == true){
+        setDirection(false)
+      }
+  }, [scrollY]);
   return (
-    <div id={scrollY >= 100 ? "navbar" : "navtop"}>
+    <div
+      id={scrollY >= 100 ? "navbar" : "navtop"}
+      style={direction == false ? { top: "0" }: { top: "-120px" }}
+    >
       <img
         alt="logo"
         src={

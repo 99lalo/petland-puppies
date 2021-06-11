@@ -14,9 +14,9 @@ body {
   width: 100%;
 }
 .container {
-  width: 60%;
   margin-left: auto;
   margin-right: auto;
+  width: 82rem
 }
 .titles {
   margin-top: 2rem;
@@ -35,4 +35,12 @@ body {
     font-weight: modules.$boldest;
     font-size: 1.4rem;
   }
+}
+.puppies-list {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-column-gap: 1em;
+  grid-row-gap: 3em;
 }

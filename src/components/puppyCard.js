@@ -2,28 +2,18 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
 function PuppyCard(props) {
-  const axios = require("axios");
-
-  useEffect(() => {
-    axios
-      .get(props.photo, {
-        "Content-Type": "application/xml; charset=utf-8", mode:'cors'
-      })
-      .then((response) => {
-        console.log(response);
-      });
-  }, []);
 
   return (
-    <div>
+    <div className="puppy-card">
       <img
+        className="photo"
         src={
           !props.photo
             ? props.photo
             : "https://www.petlandflorida.com/wp-content/themes/petland/assets/images/no-available.png"
         }
         alt="puppy"
-      />
+      ></img>
       {!props.videoUrl && (
         <div className="puppy-video">
           <img src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/PetlandFlorida_VideoIcon.svg" />
@@ -31,18 +21,19 @@ function PuppyCard(props) {
         </div>
       )}
       <div>
-        <div>
-          <span>
+        <div className="puppy-description">
+          <span className="puppy-description-top">
             {props.petType}&#9679; {props.gender}&#9679; ref id: {props.petId}
             &#9679; {props.birthDate}
           </span>
           <hr />
-          <div>
-            <span>{props.petName}</span>&#9679;{props.breedName}
-            <span className="location">
+          <div className="puppy-description-bottom">
+            <span className="puppy-name">{props.petName}</span>&#9679;{" "}
+            {props.breedName}
+            <div className="location">
               <i className="fas fa-map-marker-alt" />
-              {props.location}
-            </span>
+            {"Location: " + props.location}
+            </div>
           </div>
         </div>
       </div>
