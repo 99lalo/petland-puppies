@@ -1,5 +1,58 @@
 @use 'config';
 
-.filter {
+.filters {
   background-color: #45515d;
+  color: config.$light-color;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  padding: 0.7rem 1rem;
+  font-family: config.$font-stack;
+  display: flex;
+  text-transform: uppercase;
+  .subtitle {
+    font-family: config.$secondary-font;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    span {
+      margin-left: 10px;
+    }
+  }
+  .filter {
+    display: flex;
+  }
+  .dropdown {
+    position: relative;
+    &-content {
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+    }
+    &-button {
+      width: 14rem;
+      text-transform: uppercase;
+      border: none;
+      background-color: config.$light-color;
+      color: config.$primary-color;
+      height: 1rem;
+      .fas{
+        float: right;
+        margin-right: 1rem;
+      }
+
+    }
+    &-content {
+      position: absolute;
+      background-color: config.$light-color;
+      color: config.$primary-color;
+      padding: 1rem;
+      width: 20rem;
+      list-style: none;
+      transform: translateY(10px);
+      transition: all 0.3s ease-in;
+      li {
+        font-family: config.$secondary-font;
+        text-transform: capitalize;
+      }
+    }
+  }
 }

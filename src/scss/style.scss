@@ -9,8 +9,7 @@ body {
   background-color: modules.$background-color;
 }
 .banner {
-  object-fit: cover;
-  height: 48rem;
+  height: auto;
   width: 100%;
 }
 .container {

@@ -1,5 +1,6 @@
 import Navbar from "./components/navbar";
 import PuppyCard from "./components/puppyCard";
+import Filters from "./components/filters"
 import LazyLoad from "react-lazyload";
 import React, { useState, useEffect } from "react";
 function App() {
@@ -27,7 +28,7 @@ function App() {
           <span className="small-title">available</span>
           <span className="big-title">puppies</span>
         </div>
-        <div>filters</div>
+        <Filters list={puppies} changeList={setPuppies}/>
         <div className="puppies-list">
           {puppies.map((puppy, index) => {
             if (puppy.Photo != null) {

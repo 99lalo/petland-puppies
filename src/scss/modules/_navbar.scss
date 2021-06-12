@@ -1,18 +1,18 @@
 @use 'config';
 
-#navbar {
+#navtop {
   display: flex;
   padding: 2rem;
   justify-content: center;
-  background-color: config.$light-color;
+  background-color: transparent;
   position: fixed;
   width: 100%;
-  z-index: 1;
-  transition: top 0.3s;
+  color: config.$light-color;
+  transition: all 0.3s ease-in;
   img {
-    width: 8%;
+    width: 10rem;
     position: absolute;
-    left: 12%;
+    left: 15%;
     top: 30%;
   }
   div {
@@ -52,18 +52,20 @@
     }
   }
 }
-#navtop {
+
+#navbar {
   display: flex;
   padding: 2rem;
   justify-content: center;
-  background-color: transparent;
+  background-color: config.$light-color;
   position: fixed;
   width: 100%;
-  color: config.$light-color;
+  z-index: 1;
+  transition: all 0.3s ease-in;
   img {
-    width: 8%;
+    width: 10rem;
     position: absolute;
-    left: 12%;
+    left: 15%;
     top: 30%;
   }
   div {
