@@ -1,11 +1,12 @@
 import Navbar from "./components/navbar";
 import PuppyCard from "./components/puppyCard";
-import Filters from "./components/filters"
+import Filters from "./components/filters";
 import LazyLoad from "react-lazyload";
 import React, { useState, useEffect } from "react";
 function App() {
   const axios = require("axios");
   const [puppies, setPuppies] = useState([]);
+  const [sortedPuppies, setSortedPuppies] = useState([]);
   useEffect(() => {
     axios
       .get(
@@ -13,6 +14,7 @@ function App() {
       )
       .then((response) => {
         setPuppies(response.data.puppies);
+        setSortedPuppies(response.data.puppies);
       });
   }, []);
   return (
@@ -28,9 +30,13 @@ function App() {
           <span className="small-title">available</span>
           <span className="big-title">puppies</span>
         </div>
-        <Filters list={puppies} changeList={setPuppies}/>
+        <Filters
+          list={puppies}
+          sortedList={sortedPuppies}
+          changeSortedList={setSortedPuppies}
+        />
         <div className="puppies-list">
-          {puppies.map((puppy, index) => {
+          {sortedPuppies.map((puppy, index) => {
             if (puppy.Photo != null) {
               let photo = `${puppy.Photo.BaseUrl}${puppy.Photo.Original}`;
               return (

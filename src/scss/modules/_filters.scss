@@ -1,6 +1,6 @@
 @use 'config';
 
-.filters {
+.filter-box {
   background-color: #45515d;
   color: config.$light-color;
   margin-top: 4rem;
@@ -9,6 +9,7 @@
   font-family: config.$font-stack;
   display: flex;
   text-transform: uppercase;
+  justify-content: space-between;
   .subtitle {
     font-family: config.$secondary-font;
     font-size: 1.3rem;
@@ -17,41 +18,129 @@
       margin-left: 10px;
     }
   }
+  .filters {
+    display: flex;
+    justify-content: space-between;
+  }
   .filter {
     display: flex;
+    margin-right: 1rem;
+    .label {
+      font-size: 13px;
+      margin-top: 1px;
+    }
   }
   .dropdown {
     position: relative;
+    margin-left: 0.5rem;
     &-content {
       display: flex;
       flex-direction: column;
       z-index: 1;
     }
     &-button {
-      width: 14rem;
+      width: 11.7rem;
       text-transform: uppercase;
       border: none;
       background-color: config.$light-color;
       color: config.$primary-color;
-      height: 1rem;
-      .fas{
+      height: 1.3rem;
+      transition: transform 100ms ease-in;
+      border-radius: 5%;
+      letter-spacing: 2px;
+      &-content{
+        display: flex;
+        justify-content: space-between;
+        height: 1.3rem;
+        span{
+          margin-left: 1rem;
+          overflow: hidden;
+          height: 100%;
+        }
+      }
+      .fas {
         float: right;
         margin-right: 1rem;
+        margin-top: 2px;
       }
-
+      &:hover {
+        background-color: #dadcdf;
+        cursor: pointer;
+        transform: scale(0.99);
+      }
     }
     &-content {
       position: absolute;
       background-color: config.$light-color;
       color: config.$primary-color;
-      padding: 1rem;
+      top: 37px;
       width: 20rem;
-      list-style: none;
-      transform: translateY(10px);
-      transition: all 0.3s ease-in;
+      transition: transform 200ms ease-in;
+      transform-origin: top left;
+      transform: scaleY(0);
+      &.collapsed {
+        transform: scaleY(1);
+      }
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      .breeds-list {
+        height: 30rem;
+        overflow: auto;
+      }
+      ul {
+        list-style: none;
+        padding: 1rem;
+      }
       li {
         font-family: config.$secondary-font;
         text-transform: capitalize;
+        font-weight: 900;
+        padding: 0.7rem 0;
+        position: relative;
+        label {
+          display: flex;
+          width: fit-content;
+          cursor: pointer;
+          .checkbox-label {
+            margin-left: 1.3rem;
+            font-size: 15px;
+            bottom: 5px;
+            &:hover {
+              transform: scale(1.1);
+              transition: transform 100ms ease-in;
+            }
+          }
+          input[type="checkbox"] {
+            appearance: none;
+            width: 28px;
+            height: 25px;
+            border: 3px solid;
+            border-color: config.$primary-color;
+            border-radius: 30%;
+            cursor: pointer;
+            &:checked {
+              background-color: config.$primary-color;
+            }
+          }
+        }
+      }
+      .content-button {
+        width: 100%;
+        background-color: config.$secondary-color;
+        color: config.$light-color;
+        border: none;
+        padding: 0.9rem;
+        font-size: 18px;
+        font-family: config.$font-stack;
+        &-content {
+          margin-left: 0.7rem;
+          float: left;
+          span {
+            margin-left: 1rem;
+            letter-spacing: 2px;
+          }
+        }
       }
     }
   }
