@@ -34,7 +34,7 @@ export default function MobileNav() {
               <i className="fab fa-twitter" />
             </div>
           </div>
-          <a href="#">info@petlandflorida.com</a>
+          <a href="/">info@petlandflorida.com</a>
           <span className="phone">Phone: 954-442-3106 </span>
         </div>
         <i className="fas fa-times" onClick={() => showMenu(false)} />

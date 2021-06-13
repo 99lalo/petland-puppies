@@ -15,7 +15,7 @@ export default function Navbar() {
     if (prevScroll > scrollY && direction === true) {
       setDirection(false);
     }
-  }, [scrollY]);
+  }, [scrollY, direction, prevScroll]);
   return (
     <div
       id={scrollY >= 100 ? "navbar" : "navtop"}

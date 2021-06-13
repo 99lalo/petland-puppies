@@ -90,7 +90,7 @@ export default function Footer() {
       </div>
       <div className="privacy-policy">
         <span>
-          © 2021 PETLAND FLORIDA <a href="#">PRIVACY POLICY</a>
+          © 2021 PETLAND FLORIDA <a href="/">PRIVACY POLICY</a>
         </span>
         <img
           alt=""

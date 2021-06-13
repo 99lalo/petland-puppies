@@ -7,10 +7,10 @@ import MobileNav from "./components/mobileNav";
 import LazyLoad from "react-lazyload";
 import React, { useState, useEffect } from "react";
 function App() {
-  const axios = require("axios");
   const [puppies, setPuppies] = useState([]);
   const [sortedPuppies, setSortedPuppies] = useState([]);
   useEffect(() => {
+    const axios = require("axios");
     axios
       .get(
         "https://www.petlandflorida.com/wp-json/petland/v1/available-puppies"
@@ -77,8 +77,8 @@ function App() {
           })}
         </div>
       </div>
-      <MobileNav/>
-      <Footer/>
+      <MobileNav />
+      <Footer />
     </div>
   );
 }

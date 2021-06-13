@@ -26,6 +26,9 @@ function Filters(props) {
   const [showBreed, setShowBreed] = useState(false);
   const [showGender, setShowGender] = useState(false);
 
+  const allPuppies = props.list;
+  const changeFilteredPuppies = props.changeSortedList;
+
   const [locationSorter, setLocationSorter] = useState(["all locations"]);
   const [petTypeSorter, setPetTypeSorter] = useState(["all pet types"]);
   const [breedSorter, setBreedSorter] = useState(["all breeds"]);
@@ -70,16 +73,16 @@ function Filters(props) {
   let breedsDropdown = useRef();
   let gendersDropdown = useRef();
 
-  let locationsDropdownOutside = useClickOutside(() => {
+  useClickOutside(() => {
     setShowLocations(false);
   }, locationsDropdown);
-  let petTypeDropdownOutside = useClickOutside(() => {
+  useClickOutside(() => {
     setShowPetType(false);
   }, petTypeDropdown);
-  let breedsDropdownOutside = useClickOutside(() => {
+  useClickOutside(() => {
     setShowBreed(false);
   }, breedsDropdown);
-  let gendersDropdownOutside = useClickOutside(() => {
+  useClickOutside(() => {
     setShowGender(false);
   }, gendersDropdown);
 
@@ -137,31 +140,6 @@ function Filters(props) {
     }
   };
 
-  const filterPuppies = () => {
-    let sortedPuppies = props.list;
-    if (!all[0]) {
-      sortedPuppies = sortedPuppies.filter((puppy) => {
-        return locationSorter.includes(puppy.Location);
-      });
-    }
-    if (!all[1]) {
-      sortedPuppies = sortedPuppies.filter((puppy) =>
-        petTypeSorter.includes(puppy.PetType)
-      );
-    }
-    if (!all[2]) {
-      sortedPuppies = sortedPuppies.filter((puppy) =>
-        breedSorter.includes(puppy.BreedName)
-      );
-    }
-    if (!all[3]) {
-      sortedPuppies = sortedPuppies.filter((puppy) =>
-        genderSorter.includes(puppy.Gender)
-      );
-    }
-    return props.changeSortedList(sortedPuppies);
-  };
-
   const stringify = (array) => {
     let string = array.toString();
     string = string.replace(/-/g, " ");
@@ -170,8 +148,40 @@ function Filters(props) {
   };
 
   useEffect(() => {
+    const filterPuppies = () => {
+      let sortedPuppies = allPuppies;
+      if (!all[0]) {
+        sortedPuppies = sortedPuppies.filter((puppy) => {
+          return locationSorter.includes(puppy.Location);
+        });
+      }
+      if (!all[1]) {
+        sortedPuppies = sortedPuppies.filter((puppy) =>
+          petTypeSorter.includes(puppy.PetType)
+        );
+      }
+      if (!all[2]) {
+        sortedPuppies = sortedPuppies.filter((puppy) =>
+          breedSorter.includes(puppy.BreedName)
+        );
+      }
+      if (!all[3]) {
+        sortedPuppies = sortedPuppies.filter((puppy) =>
+          genderSorter.includes(puppy.Gender)
+        );
+      }
+      return changeFilteredPuppies(sortedPuppies);
+    };
     filterPuppies();
-  }, [locationSorter, petTypeSorter, breedSorter, genderSorter]);
+  }, [
+    locationSorter,
+    petTypeSorter,
+    breedSorter,
+    genderSorter,
+    all,
+    allPuppies,
+    changeFilteredPuppies,
+  ]);
   return (
     <>
       {isMobile ? (
