@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/petland-puppies/static/css/main.51cb853f.chunk.css",
+    "main.js": "/petland-puppies/static/js/main.2d6ab00d.chunk.js",
+    "main.js.map": "/petland-puppies/static/js/main.2d6ab00d.chunk.js.map",
+    "runtime-main.js": "/petland-puppies/static/js/runtime-main.2d8cac12.js",
+    "runtime-main.js.map": "/petland-puppies/static/js/runtime-main.2d8cac12.js.map",
+    "static/js/2.153d438c.chunk.js": "/petland-puppies/static/js/2.153d438c.chunk.js",
+    "static/js/2.153d438c.chunk.js.map": "/petland-puppies/static/js/2.153d438c.chunk.js.map",
+    "static/js/3.d87d3941.chunk.js": "/petland-puppies/static/js/3.d87d3941.chunk.js",
+    "static/js/3.d87d3941.chunk.js.map": "/petland-puppies/static/js/3.d87d3941.chunk.js.map",
+    "index.html": "/petland-puppies/index.html",
+    "static/css/main.51cb853f.chunk.css.map": "/petland-puppies/static/css/main.51cb853f.chunk.css.map",
+    "static/js/2.153d438c.chunk.js.LICENSE.txt": "/petland-puppies/static/js/2.153d438c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2d8cac12.js",
+    "static/js/2.153d438c.chunk.js",
+    "static/css/main.51cb853f.chunk.css",
+    "static/js/main.2d6ab00d.chunk.js"
+  ]
+}
