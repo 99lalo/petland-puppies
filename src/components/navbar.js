@@ -6,7 +6,7 @@ export default function Navbar() {
   const scrollY = useScrollPosition(100);
   const [prevScroll, setPrevScroll] = useState();
   const [direction, setDirection] = useState(false);
-  const isTablet = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isTablet = useMediaQuery({ query: `(max-width: 1200px)` });
   useEffect(() => {
     setPrevScroll(scrollY);
     if (scrollY > prevScroll && direction === false) {

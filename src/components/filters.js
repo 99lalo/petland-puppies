@@ -18,7 +18,8 @@ let useClickOutside = (handler, ref) => {
 };
 
 function Filters(props) {
-  const isTablet = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isTablet = useMediaQuery({ query: `(max-width: 1200px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 510px)` });
 
   const [showLocations, setShowLocations] = useState(false);
   const [showPetType, setShowPetType] = useState(false);
@@ -173,9 +174,16 @@ function Filters(props) {
   }, [locationSorter, petTypeSorter, breedSorter, genderSorter]);
   return (
     <>
-      <div className="subtitle-mobile">
-        <i className="fas fa-bars" /> <span>Filter By: </span>
-      </div>
+      {isMobile ? (
+        <div className="subtitle-mobile">
+          {" "}
+          <span>FILTERS </span>
+        </div>
+      ) : (
+        <div className="subtitle-mobile">
+          <i className="fas fa-bars" /> <span>Filter By: </span>
+        </div>
+      )}
       <div className="filter-box">
         <span className="subtitle">
           <i className="fas fa-bars" /> <span>Filter By: </span>
@@ -193,7 +201,9 @@ function Filters(props) {
                 }
               >
                 <div className="dropdown-button-content">
-                  <span>{isTablet ? 'Location' : stringify(locationSorter)}</span>
+                  <span>
+                    {isTablet ? "Location" : stringify(locationSorter)}
+                  </span>
                   <div>
                     <i className="fas fa-chevron-down" />
                   </div>
@@ -277,7 +287,9 @@ function Filters(props) {
                 }
               >
                 <div className="dropdown-button-content">
-                  <span>{isTablet ? 'pet type' : stringify(petTypeSorter)}</span>
+                  <span>
+                    {isTablet ? "pet type" : stringify(petTypeSorter)}
+                  </span>
                   <div>
                     <i className="fas fa-chevron-down" />
                   </div>
@@ -361,7 +373,7 @@ function Filters(props) {
                 }
               >
                 <div className="dropdown-button-content">
-                  <span>{isTablet ? 'breed' : stringify(breedSorter)}</span>
+                  <span>{isTablet ? "breed" : stringify(breedSorter)}</span>
                   <div>
                     <i className="fas fa-chevron-down" />
                   </div>
@@ -443,7 +455,7 @@ function Filters(props) {
                 }
               >
                 <div className="dropdown-button-content">
-                  <span>{isTablet ? 'gender' : stringify(genderSorter)}</span>
+                  <span>{isTablet ? "gender" : stringify(genderSorter)}</span>
                   <div>
                     <i className="fas fa-chevron-down" />
                   </div>

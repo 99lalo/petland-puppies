@@ -5,7 +5,7 @@
   color: rgb(46, 46, 46);
 
   .location {
-    font-size: 1.2rem;
+    font-size: 14px;
     font-weight: bold;
     letter-spacing: 2px;
   }
@@ -19,18 +19,19 @@
       cursor: pointer;
       background-color: rgb(20, 20, 20);
       border-radius: 50%;
-      width: 2rem;
-      height: 2rem;
+      width: 1.5rem;
+      height: 1.5rem;
       position: relative;
       color: config.$light-color;
       margin-left: 1rem;
       text-align: center;
       transition: background-color 0.25s ease-out;
+      font-size: 12px;
       &:hover {
         background-color: config.$secondary-color;
       }
       .fab {
-        margin-top: 10px;
+        margin-top: 6px;
       }
     }
   }
@@ -40,6 +41,7 @@
     color: config.$secondary-color;
     transition: color 0.25s ease-out;
     cursor: pointer;
+    font-size: 12px;
     letter-spacing: 2px;
     line-height: 1.5;
     &:hover {
@@ -51,7 +53,7 @@
     margin: 0.5rem 0;
   }
   .schedule {
-    font-size: 13px;
+    font-size: 10px;
     letter-spacing: 2px;
     div {
       margin-top: 5px;
@@ -61,7 +63,7 @@
     }
   }
   .permit-number {
-    font-size: 13px;
+    font-size: 10px;
     letter-spacing: 2px;
     margin-top: 10px;
   }

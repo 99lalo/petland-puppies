@@ -26,7 +26,7 @@
   justify-content: space-between;
   .subtitle {
     font-family: config.$secondary-font;
-    font-size: 1.3rem;
+    font-size: 1rem;
     text-transform: capitalize;
     span {
       margin-left: 10px;
@@ -40,8 +40,9 @@
     display: flex;
     margin-right: 1rem;
     .label {
-      font-size: 13px;
-      margin-top: 1px;
+      font-size: 8px;
+      margin-top: 6px;
+      letter-spacing: 1px;
     }
   }
   .dropdown {
@@ -53,12 +54,12 @@
       z-index: 1;
     }
     &-button {
-      width: 11.7rem;
+      width: 9rem;
       text-transform: uppercase;
       border: none;
       background-color: config.$light-color;
       color: config.$primary-color;
-      height: 1.3rem;
+      height: 1rem;
       transition: transform 100ms ease-in;
       border-radius: 5%;
       letter-spacing: 2px;
@@ -66,6 +67,8 @@
         display: flex;
         justify-content: space-between;
         height: 1.3rem;
+        font-size: 9px;
+        margin-top: 3px;
         span {
           margin-left: 1rem;
           overflow: hidden;

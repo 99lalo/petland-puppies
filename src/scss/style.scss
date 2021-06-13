@@ -33,7 +33,7 @@ body {
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 82rem;
+  width: 68rem;
 }
 .titles {
   margin-top: 2rem;
@@ -46,18 +46,20 @@ body {
 
   .big-title {
     font-weight: modules.$boldest;
-    font-size: 3.7rem;
+    font-size: 3rem;
+    letter-spacing: 3px;
   }
   .small-title {
     font-weight: modules.$boldest;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    letter-spacing: 3px;
   }
 }
 .puppies-list {
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 32% 32% 33%;
   grid-column-gap: 1em;
   grid-row-gap: 3em;
 }

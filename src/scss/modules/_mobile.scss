@@ -1,189 +1,85 @@
 @use 'config';
 
-@media (max-width: 1024px) {
+@media (max-width: 500px) {
   #navbar,
   #navtop {
-    background-color: config.$light-color;
-    padding: 10px;
-    .nav-link {
-      display: none;
-    }
-    div {
-      width: 100%;
-      margin: 0;
-      img {
-        margin-left: auto;
-        margin-right: auto;
-      }
+    padding: 5px;
+    img {
+      width: 7rem;
     }
   }
-  .titles {
-    margin-top: -1.3rem !important;
-    .small-title,
-    .big-title {
-      font-size: 1.7rem !important;
-      font-weight: bold !important;
-      background-color: config.$light-color;
-      width: fit-content;
-      padding-left: 1rem;
-      padding-right: 0.5rem;
-      margin-left: 1rem;
-      letter-spacing: 2px;
-    }
+  .banner {
+    height: 37rem !important;
+    object-fit: cover;
   }
+
   .filter-box {
-    border-top: none;
-    width: 100%;
-    padding: 1rem;
-    margin-top: -1px;
-    position: sticky;
-    top: 0px;
-    z-index: 10;
-    display: block;
-    .breeds-list {
-      height: 100% !important;
-      overflow: auto;
-    }
-    .subtitle {
-      display: none;
-    }
+    padding: 0;
+    height: 2.3rem;
     .dropdown {
-      position: static;
-      &-button {
-        background-color: config.$primary-color;
-        color: config.$light-color;
-        font-size: 10px;
-        width: 100%;
-        &:active,
-        &:focus,
-        &:hover {
-          background-color: config.$primary-color;
-        }
-        &-content {
-          display: block;
-          .fas {
-            margin-left: auto;
-            margin-right: auto;
-            float: none;
+      &-content {
+        height: 85vh;
+        top: 35px;
+        li {
+          label {
+            .checkbox-label {
+              font-size: 12px;
+            }
+            input[type="checkbox"] {
+              width: 20px;
+              height: 18px;
+              border: 2px solid #45515d;
+            }
           }
         }
       }
-      &-content {
-        width: 100%;
-        height: 90vh;
-        top: 50px;
-        left: 0;
-      }
       .content-button {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
+        font-size: 12px;
       }
     }
-  }
-  .subtitle-mobile {
-    display: block;
-  }
-  .label {
-    display: none;
-  }
-  .container {
-    width: 100% !important;
-  }
-  .puppies-list {
-    grid-template-columns: 80% !important;
-    justify-content: center;
-  }
-  .puppy-card {
-    padding-bottom: 2rem;
   }
   footer {
-    height: 210vh;
-    text-align: center;
-    margin-bottom: 0 !important;
-    position: relative;
-    .stores {
-      grid-template-columns: 100% !important;
-      width: 100% !important;
-      .mobile-location {
-        display: block !important;
-      }
-    }
-    .social-media {
-      margin-left: auto;
-      margin-right: auto;
-      justify-content: space-between;
-      width: 11rem;
-      div {
-        width: 1.7rem !important;
-        height: 1.7rem !important;
-        margin-left: 0 !important;
-        font-size: 13px;
-        .fab {
-          margin-top: 7px !important;
-        }
-      }
-    }
-    .store-card {
-      .fas {
-        display: none;
-      }
-      hr {
-        display: none;
-      }
-      .number {
-        margin-top: 0.4rem !important;
-      }
-      .schedule {
-        margin-top: 1rem !important;
-        font-size: 1.2rem;
-        position: relative;
-        .far {
-          font-size: 14px;
-          position: absolute;
-          left: 5.7rem;
-        }
-      }
-      .mobile-store-line {
-        display: block;
-      }
-    }
-    .footer-logo {
-      display: none;
-    }
+    height: 398vh;
     .privacy-policy {
-      background-color: config.$primary-color;
-      color: config.$light-color;
-      width: 100%;
-      bottom: 0;
-      padding: 2rem;
+      font-size: 8px;
+      padding: 1rem 0;
+      margin-bottom: 0;
     }
   }
   .mobile-nav {
-    display: flex !important;
-    flex-direction: row !important;
-    bottom: 0;
-    top: auto !important;
-    right: auto !important;
-    width: 100% !important;
-    height: 4rem !important;
-    box-shadow: 0px -15px 20px 9px rgba(95, 51, 51, 0.178);
-    span {
-      display: block !important;
+    div {
+      span {
+        font-size: 8px;
+      }
     }
     .call-us {
-      margin-left: 1rem;
-      margin-top: 0 !important;
+      margin-left: 0.5rem;
     }
     .financing {
-      margin-right: 1rem;
-      margin-bottom: 0 !important;
+      margin-right: 0.5rem;
     }
-    .products {
-      transform: rotate(0deg) !important;
-    }
-    .menu {
-      display: block !important;
+  }
+  .mobile-menu {
+    .wrapper {
+      .nav-link {
+        font-size: 1rem;
+        margin-top: 1rem;
+      }
+      .social-media {
+        margin-top: 1rem;
+        div {
+          width: 1.5rem;
+          height: 1.5rem;
+          .fab {
+            font-size: 12px;
+            margin-top: 6px;
+          }
+        }
+      }
+      a,
+      .phone {
+        font-size: 12px;
+      }
     }
   }
 }
