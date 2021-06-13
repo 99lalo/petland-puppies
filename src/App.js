@@ -2,6 +2,7 @@ import Navbar from "./components/navbar";
 import PuppyCard from "./components/puppyCard";
 import Filters from "./components/filters";
 import Footer from "./components/footer";
+import MobileNav from "./components/mobileNav";
 
 import LazyLoad from "react-lazyload";
 import React, { useState, useEffect } from "react";
@@ -76,6 +77,7 @@ function App() {
           })}
         </div>
       </div>
+      <MobileNav/>
       <Footer/>
     </div>
   );

@@ -2,21 +2,18 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
 function PuppyCard(props) {
-
   return (
     <div className="puppy-card">
       <img
         className="photo"
         src={
-          !props.photo
-            ? props.photo
-            : "https://www.petlandflorida.com/wp-content/themes/petland/assets/images/no-available.png"
+          "https://cdn.pixabay.com/photo/2015/06/08/15/02/pug-801826_960_720.jpg"
         }
         alt="puppy"
       ></img>
       {!props.videoUrl && (
         <div className="puppy-video">
-          <img src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/PetlandFlorida_VideoIcon.svg" />
+          <img alt= "" src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/PetlandFlorida_VideoIcon.svg" />
           <span>video</span>
         </div>
       )}
@@ -32,7 +29,7 @@ function PuppyCard(props) {
             {props.breedName}
             <div className="location">
               <i className="fas fa-map-marker-alt" />
-            {"Location: " + props.location}
+              {"Location: " + props.location}
             </div>
           </div>
         </div>

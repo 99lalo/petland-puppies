@@ -1,0 +1,121 @@
+@use 'config';
+
+.mobile-nav {
+  position: fixed;
+  right: 0;
+  top: 25%;
+  align-items: center;
+  width: 3rem;
+  height: 17rem;
+  display: flex;
+  flex-direction: column;
+  background-color: config.$light-color;
+  justify-content: space-between;
+  padding: 1rem;
+  font-family: config.$font-stack;
+  color: #2d3741;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.329);
+  z-index: 1;
+  div {
+    cursor: pointer;
+    .fas {
+      font-size: 25px;
+    }
+    span {
+      display: none;
+      font-size: 12px;
+      margin-top: 5px;
+      &:hover {
+        text-decoration: underline #a54421;
+      }
+    }
+  }
+  .menu {
+    display: none;
+    > span {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .call-us {
+    margin-top: 1rem;
+  }
+  .financing {
+    margin-bottom: 1rem;
+  }
+  .products {
+    transform: rotate(-90deg);
+  }
+}
+.mobile-menu {
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  background-color: config.$light-color;
+  position: fixed;
+  font-family: config.$font-stack;
+  transition: all 0.3s ease-in;
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    :first-of-type.nav-link {
+      margin-top: 4rem;
+    }
+    .nav-link {
+      margin-top: 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 2rem;
+      letter-spacing: 8px;
+      cursor: pointer;
+    }
+    .social-media {
+      display: flex;
+      margin-top: 2rem;
+      :first-child {
+        margin-left: 0;
+      }
+      div {
+        cursor: pointer;
+        background-color: rgb(20, 20, 20);
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        position: relative;
+        color: config.$light-color;
+        margin-left: 1rem;
+        text-align: center;
+        transition: background-color 0.25s ease-out;
+        &:hover {
+          background-color: config.$secondary-color;
+        }
+        .fab {
+          margin-top: 9px;
+          font-size: 23px;
+        }
+      }
+    }
+    a, .phone{
+        color: config.$primary-color;
+        margin-top: 2rem;
+        font-size: 19px;
+        letter-spacing: 2px;
+    }
+  }
+  .fas{
+    position: absolute;
+    font-size: 2rem;
+    bottom: 6%;
+    left: 50%;
+    cursor: pointer;
+  }
+}

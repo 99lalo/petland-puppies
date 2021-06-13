@@ -30,22 +30,23 @@ function FooterLocation(props) {
       <div className="schedule">
         {props.schedule.days[0]}
         <div>
-          <i class="far fa-clock" />
+          <i className="far fa-clock" />
           {props.schedule.hours[0]}
         </div>
-        {props.schedule.days[1] != undefined && (
+        {props.schedule.days[1] !== undefined && (
           <>
             <div>{props.schedule.days[1]}</div>
             <div>
-              <i class="far fa-clock" />
+              <i className="far fa-clock" />
               {props.schedule.hours[1]}
             </div>
           </>
         )}
       </div>
-      {!!props.permitNumber && (
+      {props.permitNumber && (
         <div className="permit-number">Permit Number: {props.permitNumber}</div>
       )}
+      <hr className="mobile-store-line" />
     </div>
   );
 }

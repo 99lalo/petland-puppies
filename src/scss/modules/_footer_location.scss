@@ -65,4 +65,13 @@
     letter-spacing: 2px;
     margin-top: 10px;
   }
+  .mobile-store-line{
+    display: none;
+    width: 12%;
+    border: 2px solid config.$primary-color;
+    background-color: config.$primary-color;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+  }
 }

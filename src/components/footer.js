@@ -68,6 +68,7 @@ export default function Footer() {
     <footer>
       <div className="wrapper">
         <div className="stores">
+          <i className="fas fa-map-marker-alt mobile-location" />
           {stores.map((store, index) => {
             return (
               <FooterLocation
@@ -86,21 +87,34 @@ export default function Footer() {
           <div className="faq">faq</div>
           <div className="employment">employment opportunities</div>
         </div>
-        <div className="privacy-policy">
-          <span>
-            © 2021 PETLAND FLORIDA <a href="#">PRIVACY POLICY</a>
-          </span>
-          <div className="cards">
-            <img src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/Visa-2.png" />
-            <img src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/Master-Card-2.png" />
-            <img src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/Discover-2.png" />
-            <img src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/AMEX-2.png" />
-          </div>
-        </div>
+      </div>
+      <div className="privacy-policy">
+        <span>
+          © 2021 PETLAND FLORIDA <a href="#">PRIVACY POLICY</a>
+        </span>
         <img
+          alt=""
           src="https://www.petlandflorida.com/wp-content/themes/petland/styles/assets/images/shared/logo-black.svg"
           className="footer-logo"
         />
+        <div className="cards">
+          <img
+            alt=""
+            src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/Visa-2.png"
+          />
+          <img
+            alt=""
+            src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/Master-Card-2.png"
+          />
+          <img
+            alt=""
+            src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/Discover-2.png"
+          />
+          <img
+            alt=""
+            src="https://www.petlandflorida.com/wp-content/themes/petland/assets/images/AMEX-2.png"
+          />
+        </div>
       </div>
     </footer>
   );

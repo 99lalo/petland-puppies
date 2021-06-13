@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { useMediaQuery } from "react-responsive";
 
 let useClickOutside = (handler, ref) => {
-  const isTablet = useMediaQuery({ query: `(max-width: 1024px)` });
   useEffect(() => {
     let outsideHandler = (event) => {
       if (!ref.current.contains(event.target)) {
@@ -19,6 +18,8 @@ let useClickOutside = (handler, ref) => {
 };
 
 function Filters(props) {
+  const isTablet = useMediaQuery({ query: `(max-width: 1024px)` });
+
   const [showLocations, setShowLocations] = useState(false);
   const [showPetType, setShowPetType] = useState(false);
   const [showBreed, setShowBreed] = useState(false);
@@ -171,343 +172,352 @@ function Filters(props) {
     filterPuppies();
   }, [locationSorter, petTypeSorter, breedSorter, genderSorter]);
   return (
-    <div className="filter-box">
-      <span className="subtitle">
+    <>
+      <div className="subtitle-mobile">
         <i className="fas fa-bars" /> <span>Filter By: </span>
-      </span>
-      <div className="filters">
-        <div className="filter">
-          <span className="label">location</span>
-          <div ref={locationsDropdown} className="dropdown">
-            <button
-              className="dropdown-button"
-              onClick={
-                !showLocations
-                  ? (e) => setShowLocations(true)
-                  : (e) => setShowLocations(false)
-              }
-            >
-              <div className="dropdown-button-content">
-                <span>{stringify(locationSorter)}</span>
-                <div>
-                  <i className="fas fa-chevron-down" />
-                </div>
-              </div>
-            </button>
-            <div
-              className={
-                !showLocations
-                  ? "dropdown-content"
-                  : "dropdown-content collapsed"
-              }
-            >
-              <ul>
-                <li>
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="all locations"
-                      onChange={(e) =>
-                        handleAll(
-                          e,
-                          0,
-                          setLocationSorter,
-                          locations,
-                          setLocationCheckbox
-                        )
-                      }
-                      checked={all[0]}
-                    />
-                    <div className="checkbox-label">All Locations</div>
-                  </label>
-                </li>
-                {locations.map((location, index) => {
-                  return (
-                    <li key={location}>
-                      <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) =>
-                            handleFilters(
-                              e,
-                              0,
-                              "all locations",
-                              locationCheckbox,
-                              setLocationCheckbox,
-                              locationSorter,
-                              setLocationSorter
-                            )
-                          }
-                          id={index}
-                          value={location}
-                          name={location}
-                          checked={locationCheckbox[index]}
-                        />
-                        <div className="checkbox-label">{location}</div>
-                      </label>
-                    </li>
-                  );
-                })}
-              </ul>
+      </div>
+      <div className="filter-box">
+        <span className="subtitle">
+          <i className="fas fa-bars" /> <span>Filter By: </span>
+        </span>
+        <div className="filters">
+          <div className="filter">
+            <span className="label">location</span>
+            <div ref={locationsDropdown} className="dropdown">
               <button
-                onClick={() => setShowLocations(false)}
-                className="content-button"
+                className="dropdown-button"
+                onClick={
+                  !showLocations
+                    ? (e) => setShowLocations(true)
+                    : (e) => setShowLocations(false)
+                }
               >
-                <span className="content-button-content">
-                  &rarr; <span>apply filters</span>
-                </span>
+                <div className="dropdown-button-content">
+                  <span>{isTablet ? 'Location' : stringify(locationSorter)}</span>
+                  <div>
+                    <i className="fas fa-chevron-down" />
+                  </div>
+                </div>
               </button>
+              <div
+                className={
+                  !showLocations
+                    ? "dropdown-content"
+                    : "dropdown-content collapsed"
+                }
+              >
+                <ul>
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="all locations"
+                        onChange={(e) =>
+                          handleAll(
+                            e,
+                            0,
+                            setLocationSorter,
+                            locations,
+                            setLocationCheckbox
+                          )
+                        }
+                        checked={all[0]}
+                      />
+                      <div className="checkbox-label">All Locations</div>
+                    </label>
+                  </li>
+                  {locations.map((location, index) => {
+                    return (
+                      <li key={location}>
+                        <label>
+                          <input
+                            type="checkbox"
+                            onChange={(e) =>
+                              handleFilters(
+                                e,
+                                0,
+                                "all locations",
+                                locationCheckbox,
+                                setLocationCheckbox,
+                                locationSorter,
+                                setLocationSorter
+                              )
+                            }
+                            id={index}
+                            value={location}
+                            name={location}
+                            checked={locationCheckbox[index]}
+                          />
+                          <div className="checkbox-label">{location}</div>
+                        </label>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <button
+                  onClick={() => setShowLocations(false)}
+                  className="content-button"
+                >
+                  <span className="content-button-content">
+                    &rarr; <span>apply filters</span>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="filter">
-          <span className="label">pet type</span>
-          <div ref={petTypeDropdown} className="dropdown">
-            <button
-              className="dropdown-button"
-              onClick={
-                !showPetType
-                  ? (e) => setShowPetType(true)
-                  : (e) => setShowPetType(false)
-              }
-            >
-              <div className="dropdown-button-content">
-                <span>{stringify(petTypeSorter)}</span>
-                <div>
-                  <i className="fas fa-chevron-down" />
-                </div>
-              </div>
-            </button>
-            <div
-              className={
-                !showPetType ? "dropdown-content" : "dropdown-content collapsed"
-              }
-            >
-              <ul>
-                <li>
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="all pet types"
-                      onChange={(e) =>
-                        handleAll(
-                          e,
-                          1,
-                          setPetTypeSorter,
-                          types,
-                          setPetTypeCheckbox
-                        )
-                      }
-                      checked={all[1]}
-                    />
-                    <div className="checkbox-label">All Pet Types</div>
-                  </label>
-                </li>
-                {types.map((type, index) => {
-                  return (
-                    <li key={type}>
-                      <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) =>
-                            handleFilters(
-                              e,
-                              1,
-                              "all pet types",
-                              petTypeCheckbox,
-                              setPetTypeCheckbox,
-                              petTypeSorter,
-                              setPetTypeSorter
-                            )
-                          }
-                          id={index}
-                          value={type}
-                          name={type}
-                          checked={petTypeCheckbox[index]}
-                        />
-                        <div className="checkbox-label">{type}</div>
-                      </label>
-                    </li>
-                  );
-                })}
-              </ul>
+          <div className="filter">
+            <span className="label">pet type</span>
+            <div ref={petTypeDropdown} className="dropdown">
               <button
-                onClick={() => setShowPetType(false)}
-                className="content-button"
+                className="dropdown-button"
+                onClick={
+                  !showPetType
+                    ? (e) => setShowPetType(true)
+                    : (e) => setShowPetType(false)
+                }
               >
-                <span className="content-button-content">
-                  &rarr; <span>apply filters</span>
-                </span>
+                <div className="dropdown-button-content">
+                  <span>{isTablet ? 'pet type' : stringify(petTypeSorter)}</span>
+                  <div>
+                    <i className="fas fa-chevron-down" />
+                  </div>
+                </div>
               </button>
+              <div
+                className={
+                  !showPetType
+                    ? "dropdown-content"
+                    : "dropdown-content collapsed"
+                }
+              >
+                <ul>
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="all pet types"
+                        onChange={(e) =>
+                          handleAll(
+                            e,
+                            1,
+                            setPetTypeSorter,
+                            types,
+                            setPetTypeCheckbox
+                          )
+                        }
+                        checked={all[1]}
+                      />
+                      <div className="checkbox-label">All Pet Types</div>
+                    </label>
+                  </li>
+                  {types.map((type, index) => {
+                    return (
+                      <li key={type}>
+                        <label>
+                          <input
+                            type="checkbox"
+                            onChange={(e) =>
+                              handleFilters(
+                                e,
+                                1,
+                                "all pet types",
+                                petTypeCheckbox,
+                                setPetTypeCheckbox,
+                                petTypeSorter,
+                                setPetTypeSorter
+                              )
+                            }
+                            id={index}
+                            value={type}
+                            name={type}
+                            checked={petTypeCheckbox[index]}
+                          />
+                          <div className="checkbox-label">{type}</div>
+                        </label>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <button
+                  onClick={() => setShowPetType(false)}
+                  className="content-button"
+                >
+                  <span className="content-button-content">
+                    &rarr; <span>apply filters</span>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="filter">
-          <span className="label">breed</span>
-          <div ref={breedsDropdown} className="dropdown">
-            <button
-              className="dropdown-button"
-              onClick={
-                !showBreed
-                  ? (e) => setShowBreed(true)
-                  : (e) => setShowBreed(false)
-              }
-            >
-              <div className="dropdown-button-content">
-                <span>{stringify(breedSorter)}</span>
-                <div>
-                  <i className="fas fa-chevron-down" />
-                </div>
-              </div>
-            </button>
-            <div
-              className={
-                !showBreed ? "dropdown-content" : "dropdown-content collapsed"
-              }
-            >
-              <ul className="breeds-list">
-                <li>
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="all breeds"
-                      onChange={(e) =>
-                        handleAll(
-                          e,
-                          2,
-                          setBreedSorter,
-                          breeds,
-                          setBreedCheckbox
-                        )
-                      }
-                      checked={all[2]}
-                    />
-                    <div className="checkbox-label">All Breeds</div>
-                  </label>
-                </li>
-                {breeds.map((breed, index) => {
-                  return (
-                    <li key={breed}>
-                      <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) =>
-                            handleFilters(
-                              e,
-                              2,
-                              "all breed types",
-                              breedCheckbox,
-                              setBreedCheckbox,
-                              breedSorter,
-                              setBreedSorter
-                            )
-                          }
-                          id={index}
-                          value={breed}
-                          name={breed}
-                          checked={breedCheckbox[index]}
-                        />
-                        <div className="checkbox-label">{breed}</div>
-                      </label>
-                    </li>
-                  );
-                })}
-              </ul>
+          <div className="filter">
+            <span className="label">breed</span>
+            <div ref={breedsDropdown} className="dropdown">
               <button
-                onClick={() => setShowBreed(false)}
-                className="content-button"
+                className="dropdown-button"
+                onClick={
+                  !showBreed
+                    ? (e) => setShowBreed(true)
+                    : (e) => setShowBreed(false)
+                }
               >
-                <span className="content-button-content">
-                  &rarr; <span>apply filters</span>
-                </span>
+                <div className="dropdown-button-content">
+                  <span>{isTablet ? 'breed' : stringify(breedSorter)}</span>
+                  <div>
+                    <i className="fas fa-chevron-down" />
+                  </div>
+                </div>
               </button>
+              <div
+                className={
+                  !showBreed ? "dropdown-content" : "dropdown-content collapsed"
+                }
+              >
+                <ul className="breeds-list">
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="all breeds"
+                        onChange={(e) =>
+                          handleAll(
+                            e,
+                            2,
+                            setBreedSorter,
+                            breeds,
+                            setBreedCheckbox
+                          )
+                        }
+                        checked={all[2]}
+                      />
+                      <div className="checkbox-label">All Breeds</div>
+                    </label>
+                  </li>
+                  {breeds.map((breed, index) => {
+                    return (
+                      <li key={breed}>
+                        <label>
+                          <input
+                            type="checkbox"
+                            onChange={(e) =>
+                              handleFilters(
+                                e,
+                                2,
+                                "all breed types",
+                                breedCheckbox,
+                                setBreedCheckbox,
+                                breedSorter,
+                                setBreedSorter
+                              )
+                            }
+                            id={index}
+                            value={breed}
+                            name={breed}
+                            checked={breedCheckbox[index]}
+                          />
+                          <div className="checkbox-label">{breed}</div>
+                        </label>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <button
+                  onClick={() => setShowBreed(false)}
+                  className="content-button"
+                >
+                  <span className="content-button-content">
+                    &rarr; <span>apply filters</span>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="filter">
-          <span className="label">gender</span>
-          <div ref={gendersDropdown} className="dropdown">
-            <button
-              className="dropdown-button"
-              onClick={
-                !showGender
-                  ? (e) => setShowGender(true)
-                  : (e) => setShowGender(false)
-              }
-            >
-              <div className="dropdown-button-content">
-                <span>{stringify(genderSorter)}</span>
-                <div>
-                  <i className="fas fa-chevron-down" />
-                </div>
-              </div>
-            </button>
-            <div
-              className={
-                !showGender ? "dropdown-content" : "dropdown-content collapsed"
-              }
-            >
-              <ul>
-                <li>
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="all genders"
-                      onChange={(e) =>
-                        handleAll(
-                          e,
-                          3,
-                          setGenderSorter,
-                          genders,
-                          setGenderCheckbox
-                        )
-                      }
-                      checked={all[3]}
-                    />
-                    <div className="checkbox-label">All Genders</div>
-                  </label>
-                </li>
-                {genders.map((gender, index) => {
-                  return (
-                    <li key={gender}>
-                      <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) =>
-                            handleFilters(
-                              e,
-                              3,
-                              "all gender types",
-                              genderCheckbox,
-                              setGenderCheckbox,
-                              genderSorter,
-                              setGenderSorter
-                            )
-                          }
-                          id={index}
-                          value={gender}
-                          name={gender}
-                          checked={genderCheckbox[index]}
-                        />
-                        <div className="checkbox-label">{gender}</div>
-                      </label>
-                    </li>
-                  );
-                })}
-              </ul>
+          <div className="filter">
+            <span className="label">gender</span>
+            <div ref={gendersDropdown} className="dropdown">
               <button
-                onClick={() => setShowGender(false)}
-                className="content-button"
+                className="dropdown-button"
+                onClick={
+                  !showGender
+                    ? (e) => setShowGender(true)
+                    : (e) => setShowGender(false)
+                }
               >
-                <span className="content-button-content">
-                  &rarr; <span>apply filters</span>
-                </span>
+                <div className="dropdown-button-content">
+                  <span>{isTablet ? 'gender' : stringify(genderSorter)}</span>
+                  <div>
+                    <i className="fas fa-chevron-down" />
+                  </div>
+                </div>
               </button>
+              <div
+                className={
+                  !showGender
+                    ? "dropdown-content"
+                    : "dropdown-content collapsed"
+                }
+              >
+                <ul>
+                  <li>
+                    <label>
+                      <input
+                        type="checkbox"
+                        value="all genders"
+                        onChange={(e) =>
+                          handleAll(
+                            e,
+                            3,
+                            setGenderSorter,
+                            genders,
+                            setGenderCheckbox
+                          )
+                        }
+                        checked={all[3]}
+                      />
+                      <div className="checkbox-label">All Genders</div>
+                    </label>
+                  </li>
+                  {genders.map((gender, index) => {
+                    return (
+                      <li key={gender}>
+                        <label>
+                          <input
+                            type="checkbox"
+                            onChange={(e) =>
+                              handleFilters(
+                                e,
+                                3,
+                                "all gender types",
+                                genderCheckbox,
+                                setGenderCheckbox,
+                                genderSorter,
+                                setGenderSorter
+                              )
+                            }
+                            id={index}
+                            value={gender}
+                            name={gender}
+                            checked={genderCheckbox[index]}
+                          />
+                          <div className="checkbox-label">{gender}</div>
+                        </label>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <button
+                  onClick={() => setShowGender(false)}
+                  className="content-button"
+                >
+                  <span className="content-button-content">
+                    &rarr; <span>apply filters</span>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

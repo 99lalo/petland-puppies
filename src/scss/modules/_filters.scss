@@ -1,5 +1,19 @@
 @use 'config';
 
+.subtitle-mobile {
+  width: 100%;
+  background-color: #2d3741;
+  color: config.$light-color;
+  font-family: config.$font-stack;
+  margin-top: 2rem;
+  display: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 1rem;
+  border-bottom: none;
+}
 .filter-box {
   background-color: #45515d;
   color: config.$light-color;
@@ -48,11 +62,11 @@
       transition: transform 100ms ease-in;
       border-radius: 5%;
       letter-spacing: 2px;
-      &-content{
+      &-content {
         display: flex;
         justify-content: space-between;
         height: 1.3rem;
-        span{
+        span {
           margin-left: 1rem;
           overflow: hidden;
           height: 100%;
