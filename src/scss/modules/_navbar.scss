@@ -11,18 +11,18 @@
   transition: all 0.3s ease-in;
   img {
     width: 10rem;
-    position: absolute;
-    left: 15%;
-    top: 30%;
   }
   div {
     display: flex;
-    justify-content: space-between;
-    width: 55%;
+    width: 63%;
     margin: 1rem 0 0 3rem;
+    :nth-child(2){
+      margin-left: 4rem;
+    }
     span {
       font-size: 0.8rem;
       margin-top: 0.8rem;
+      margin-left: 2rem;
       font-family: config.$font-stack;
       text-transform: uppercase;
       font-weight: bold;
@@ -64,18 +64,18 @@
   transition: all 0.3s ease-in;
   img {
     width: 10rem;
-    position: absolute;
-    left: 15%;
-    top: 30%;
+  }
+  :nth-child(2){
+    margin-left: 4rem;
   }
   div {
     display: flex;
-    justify-content: space-between;
-    width: 55%;
+    width: 63%;
     margin: 1rem 0 0 3rem;
     span {
       font-size: 0.8rem;
       margin-top: 0.8rem;
+      margin-left: 2rem;
       font-family: config.$font-stack;
       text-transform: uppercase;
       font-weight: bold;

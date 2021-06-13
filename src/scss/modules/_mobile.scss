@@ -1,0 +1,27 @@
+@use 'config';
+
+@media (max-width: 1024px) {
+  #navbar,
+  #navtop {
+    background-color: config.$light-color;
+    padding: 0;
+    .nav-link {
+      display: none;
+    }
+    div {
+      width: 100%;
+      margin: 0;
+      img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+  .puppies-list {
+    grid-template-columns: 80% !important;
+    justify-content: center;
+  }
+  .label {
+    display: none;
+  }
+}

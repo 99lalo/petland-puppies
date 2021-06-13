@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import { useMediaQuery } from "react-responsive";
 
 let useClickOutside = (handler, ref) => {
+  const isTablet = useMediaQuery({ query: `(max-width: 1024px)` });
   useEffect(() => {
     let outsideHandler = (event) => {
       if (!ref.current.contains(event.target)) {
