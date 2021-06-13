@@ -1,0 +1,68 @@
+@use 'config';
+
+.store-card {
+  font-family: config.$font-stack;
+  color: rgb(46, 46, 46);
+
+  .location {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  .social-media {
+    display: flex;
+    margin-top: 1rem;
+    :first-child {
+      margin-left: 0;
+    }
+    div {
+      cursor: pointer;
+      background-color: rgb(20, 20, 20);
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      position: relative;
+      color: config.$light-color;
+      margin-left: 1rem;
+      text-align: center;
+      transition: background-color 0.25s ease-out;
+      &:hover {
+        background-color: config.$secondary-color;
+      }
+      .fab {
+        margin-top: 10px;
+      }
+    }
+  }
+  .address,
+  .number {
+    margin-top: 1rem;
+    color: config.$secondary-color;
+    transition: color 0.25s ease-out;
+    cursor: pointer;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    &:hover {
+      color: #a54421;
+      text-decoration: underline;
+    }
+  }
+  hr {
+    margin: 0.5rem 0;
+  }
+  .schedule {
+    font-size: 13px;
+    letter-spacing: 2px;
+    div {
+      margin-top: 5px;
+    }
+    span {
+      margin-top: 5px;
+    }
+  }
+  .permit-number {
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-top: 10px;
+  }
+}

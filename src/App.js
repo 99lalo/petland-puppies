@@ -1,6 +1,8 @@
 import Navbar from "./components/navbar";
 import PuppyCard from "./components/puppyCard";
 import Filters from "./components/filters";
+import Footer from "./components/footer";
+
 import LazyLoad from "react-lazyload";
 import React, { useState, useEffect } from "react";
 function App() {
@@ -74,6 +76,7 @@ function App() {
           })}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

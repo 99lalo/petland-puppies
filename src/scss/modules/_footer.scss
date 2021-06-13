@@ -1,0 +1,84 @@
+@use 'config';
+
+footer {
+  margin-top: 5rem;
+  display: flex;
+  background-color: config.$light-color;
+  width: 100%;
+  height: 65rem;
+  margin-bottom: 5rem;
+  justify-content: center;
+  font-family: config.$font-stack;
+  .wrapper {
+    margin-top: 5rem;
+    width: 55%;
+    position: relative;
+    .stores {
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      grid-column-gap: 1em;
+      grid-row-gap: 3em;
+      width: 50rem;
+    }
+    .company {
+      margin-top: 2rem;
+      text-transform: uppercase;
+      &-title {
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+      .faq {
+        margin-top: 1.7rem;
+      }
+      .employment {
+        margin-top: 1rem;
+      }
+      .faq,
+      .employment {
+        color: config.$secondary-color;
+        transition: color 0.25s ease-out;
+        cursor: pointer;
+        letter-spacing: 2px;
+        line-height: 1.5;
+        font-size: 12px;
+        &:hover {
+          color: #a54421;
+          text-decoration: underline;
+        }
+      }
+    }
+    .privacy-policy {
+      margin-top: 5rem;
+      font-size: 12px;
+      letter-spacing: 4px;
+      font-weight: bold;
+      a {
+        color: config.$secondary-color;
+        transition: color 0.25s ease-out;
+        cursor: pointer;
+        line-height: 1.5;
+        text-decoration: none;
+        &:hover {
+          color: #a54421;
+          text-decoration: underline;
+        }
+      }
+    }
+    .cards {
+      margin-top: 1.5rem;
+      :first-child {
+        margin-left: 0;
+      }
+      img {
+        margin-left: 1rem;
+        width: 3.4rem;
+      }
+    }
+    .footer-logo {
+      position: absolute;
+      right: 0%;
+      width: 8rem;
+      bottom: 13%;
+    }
+  }
+}

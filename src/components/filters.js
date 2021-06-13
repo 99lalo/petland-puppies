@@ -511,7 +511,6 @@ function Filters(props) {
 
 Filters.propTypes = {
   changeSortedList: PropTypes.func,
-  sortedList: PropTypes.array,
   list: PropTypes.array,
 };
 
